@@ -1,31 +1,18 @@
 # Zenon-Pillar-Sentry-Architecture
 
+## Node Requirements
+Hardware, CPU >= 4 cores, RAM >= 8 GB, Swap >= 16 GB, Storage >= 40 GB free space, >100Mbps network dedicated bandwidth Software, Linux distros e.g. Ubuntu 20.04 LTS/Debian 11 (recommend ubuntu 20.04)
+
+Also Recommended NTP configuration*, Recommended Watchdog service* These are Included if the setup is performed using the znn-controller
+
 ### Prereqs
-Need 2 full nodes
+1. You will need at least 2 sentry nodes to support your pillar (more is fine). It is recommended to launch these sentry nodes across regions / availability zones because to protect yourself against unexpected outages.
+2. You will need to have a running pillar. If you are launching a pillar for the first time refer to the teams pillar launching guide https://github.com/zenon-network/znn-bundle/blob/master/PILLARS.md or SultanOfStaking guide https://github.com/sultanofstaking/Zenon-Pillar-Deployment.
 
 ### Background
+Pillars are an integral part of the network so it is critical that we treat them as such and take measures to reduce their attack surface. One way to do this is to set up a sentry architecture. In it's simplest terms that means we will remove the list of peers that are populated when you spawn your pillar and replace them with your own sentry nodes that you run. We will also adjust the firewall so that your pillar is communicating only with your sentry nodes. In this instance if someone was to try to DDOS you the best they could do is take your sentry offline. Assuming you have multiple sentries your pillar will still be able to communicate with them until you mitigate the attack. 
 
-Zenon uses port 35995 for node to node network communication.
-What this means is that if you run a node, your computer is Listening on port 35995 for incoming connections. In order to connect with another computer's port 35995, you open up a temporary/ephemeral port on your computer to connect with their 35995.
+### Steps to Sentrify an existing pillar
 
-### Steps
-Try running
-`netstat -a | grep 35995`
-on your pillar/node. This will let you see everyone who has connected with your port 35995
-and also let you see all your outbound connections with someone else's port 35995
-
-you will likely notice 2 types of lines
-one which is your host/ip:35995 connected to some random public/host ip with a random port
-
-and another which is your host/ip<random port> connected with another random public/host ip with port 35995
-  
-  if it's your port 35995, it means that the other node reached out to you
-if its their port 35995, it means your node reached out to them
-  
-  if the line says ESTABLISHED, it means it is an active connection
-  
-  you can run the netstat -a command without the grep and see it dumping info live
-if you pipe it to the grep command
-it will probably take a minute before you see anything
   
   
