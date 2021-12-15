@@ -32,7 +32,7 @@ chmod +x sentrify`
 
 ### Add sentries
 
-`./sentrify` and choose option `2` - this will ask for sentry ip and then ws port, so it can take it's public key and add it repeat for all your sentries
+`./sentrify` and choose option `2` - this will ask for sentry ip and then ws port (copy paste the default port), so it can take it's public key and add it repeat for all your sentries
 
 ### Sentrify
 
