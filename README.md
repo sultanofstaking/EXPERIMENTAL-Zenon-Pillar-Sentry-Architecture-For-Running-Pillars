@@ -31,32 +31,42 @@ sudo unzip sentrify
 
 
 Create and navigate to alphanet directory
+
 `mkdir alphanet && cd alphanet`
 
 Get sentrify and make executable
+
 `wget https://github.com/MoonBaZe/sentrify/releases/download/release/sentrify
 chmod +x sentrify`
 
 Stop znn-controller service (this will stop producing momentum)
+
 `sudo systemctl stop go-zenon.service`
  
 Remove peers
+
 `./sentrify` and choose option `3` - this will remove all peers from config.json if you have any
 
 Add sentries
+
 `./sentrify` and choose option `2` - will ask for sentry ip and then ws port, so it can take it's public key and add it repeat for all your sentries
 
 Sentrify
+
 `./sentrify` and choose option `4` - will add firewall rules so that your node only accepts ssh, dns (so controller works) and your sentries
 
 Enable firewall
+
 `ufw enable` - then `y` - don't worry, will not interrupt your ssh
 
 Start node
+
 `sudo systemctl start go-zenon.service`
 
 Check status
+
 `systemctl status go-zenon.service`
 
 Tips
+
 Every time you add a new sentry (step `2` in `./sentrify`, you should run `./sentrify` option `4` and then `enable ufw`
