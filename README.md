@@ -8,33 +8,17 @@ Pillars are an integral part of the network so it is critical that we treat them
 2. You will need to have a running pillar. If you are launching a pillar for the first time refer to the teams pillar launching guide https://github.com/zenon-network/znn-bundle/blob/master/PILLARS.md or SultanOfStaking guide https://github.com/sultanofstaking/Zenon-Pillar-Deployment.
 
 ### Steps to Sentrify an existing pillar
+
+There are 2 options to sentrify your pillar. Option 1 is to install dart and compile the code yourself. Option 2 is the download the pre-compiled binary from github. This guide covers Option 2 as it is few steps and easier for most without a technical background.
+
 ***Start from Root***
-
-Get Dart SDK???
-Need to create packages directory? Root mkdir packages
-Compile in pillar concern? run in packages directory? OR transfer to /root/packages
-
-
-Download process (link is unique to OS and Architecture - this is for Linux x64)
-
-```
-cd packages
-sudo curl -sL https://storage.googleapis.com/dart-archive/channels/stable/release/2.14.2/sdk/dartsdk-linux-x64-release.zip -o sentrify
-sudo chmod +x sentrify
-sudo unzip sentrify
-```
-
-
-### Create and navigate to alphanet directory
-
-`mkdir alphanet && cd alphanet`
 
 ### Get sentrify and make executable
 
 `wget https://github.com/MoonBaZe/sentrify/releases/download/release/sentrify
 chmod +x sentrify`
 
-### Stop znn-controller service (this will stop producing momentum)
+### Stop znn-controller service (Note, this will stop producing momentum so once you do this you will want to finsh the setup quickly)
 
 `sudo systemctl stop go-zenon.service`
  
@@ -44,11 +28,11 @@ chmod +x sentrify`
 
 ### Remove peers
 
-`./sentrify` and choose option `3` - this will remove all peers from config.json if you have any
+`./sentrify` and choose option `3` - this will remove all peers from config.json 
 
 ### Add sentries
 
-`./sentrify` and choose option `2` - will ask for sentry ip and then ws port, so it can take it's public key and add it repeat for all your sentries
+`./sentrify` and choose option `2` - this will ask for sentry ip and then ws port, so it can take it's public key and add it repeat for all your sentries
 
 ### Sentrify
 
