@@ -43,6 +43,10 @@ chmod +x sentrify`
 
 `sudo systemctl stop go-zenon.service`
  
+### Remove network folder
+
+`Rm -rf /root/.znn/network`
+
 ### Remove peers
 
 `./sentrify` and choose option `3` - this will remove all peers from config.json if you have any
