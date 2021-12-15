@@ -24,7 +24,7 @@ chmod +x sentrify`
  
 ### Remove network folder
 
-`Rm -rf /root/.znn/network`
+`rm -rf /root/.znn/network`
 
 ### Remove peers
 
