@@ -34,6 +34,8 @@ chmod +x sentrify`
 
 `./sentrify` and choose option `2` - this will ask for sentry ip and then ws port (copy paste the default port), so it can take it's public key and add it repeat for all your sentries
 
+Note, if you receive "Can not establish a connection with the sentry" then check the firewall on your sentry `sudo ufw status` and add the ip of your pillar if needed `ufw allow from YOUR IP`
+
 ### Sentrify
 
 `./sentrify` and choose option `4` - will add firewall rules so that your node only accepts ssh, dns (so controller works) and your sentries
