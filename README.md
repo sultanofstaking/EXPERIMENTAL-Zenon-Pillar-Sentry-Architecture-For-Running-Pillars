@@ -4,14 +4,14 @@
 Pillars are an integral part of the network so it is critical that we treat them as such and take measures to reduce their attack surface. One way to do this is to set up a sentry architecture. In it's simplest terms that means we will remove the list of peers that are populated when you spawn your pillar and replace them with your own personal sentry nodes. We will also adjust the firewall so that your pillar is communicating only with your sentry nodes. In this instance if someone was to try to DDOS you the best they could do is take your sentry offline. Assuming you have multiple sentries your pillar will still be able to communicate with them until you mitigate the attack. 
 
 ### Prereqs & Tips
-1. You will need at least 2 sentry nodes to support your pillar (more is fine). It is recommended to launch these sentry nodes across regions / availability zones to protect yourself against unexpected outages.
-2. You must ensure your sentry nodes firewall is set to allow your pillar access or you will not be able to add them. To do this run `sudo ufw allow from <ip address>` and replace <ip address> with your pillar's ip address.
-3. You will need to have a running pillar. If you are launching a pillar for the first time refer to the teams pillar launching guide https://github.com/zenon-network/znn-bundle/blob/master/PILLARS.md 
-4. **It is highly recommended that you test this setup on a non-active pillar first. To learn how to update your pillars with no downtime follow this guide https://github.com/sultanofstaking/How-To-Update-Pillar-With-No-Downtime**
+1. You will need to have a running pillar. If you are launching a pillar for the first time refer to the teams pillar launching guide https://github.com/zenon-network/znn-bundle/blob/master/PILLARS.md 
+2. You will need at least 2 sentry nodes to support your pillar (more is fine). It is recommended to launch these sentry nodes across regions / availability zones to protect yourself against unexpected outages.
+3. You must ensure your sentry nodes firewall is set to allow access from your pillar. To do this, log into your sentry node, run `sudo ufw allow from <ip address>` and replace <ip address> with your pillar's ip address.
+5. **It is highly recommended that you test this setup on a non-active pillar first. To learn how to update your pillars with no downtime follow this guide https://github.com/sultanofstaking/How-To-Update-Pillar-With-No-Downtime**
 
 ### Steps to Sentrify an existing pillar
 
-There are 2 options to sentrify your pillar. Option 1 is to install dart and compile the code yourself. Option 2 is the download the pre-compiled binary from github. This guide covers Option 2 as it is few steps and easier for most without a technical background.
+There are 2 options to sentrify your pillar. Option 1 is to install dart and compile the code yourself. Option 2 is the download the pre-compiled binary from github. This guide covers Option 2 as it is fewer steps and easier for most without a technical background.
 
 ***Start from Root***
 
