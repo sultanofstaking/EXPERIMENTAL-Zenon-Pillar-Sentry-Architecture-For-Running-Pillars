@@ -57,7 +57,7 @@ Note, if you receive "Can not establish a connection with the sentry" then check
 
 ### Tips
 
-Every time you add a new sentry (step `2` in `./sentrify`) you should run `./sentrify` option `4` and then `enable ufw`
+Every time you add a new sentry disable the firewall `sudo ufw disable`, stop the node `sudo systemctl stop go-zenon.service`, add the sentry (step `2` in `./sentrify`) then run `./sentrify` option `4` and then `enable ufw`
  
 This setup may interfere with your ability to accept updates in the future. The easy way to bypass this to simply disable the firewall `sudo ufw disable` , update, then enable the firewall `sudo ufw enable`
  
