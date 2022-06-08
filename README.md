@@ -25,10 +25,6 @@ There are 2 options to sentrify your pillar. Option 1 is to install dart and com
 
 `sudo systemctl stop go-zenon.service`
  
-### Remove network folder
-
-`rm -rf /root/.znn/network`
-
 ### Remove peers
 
 `./sentrify` and choose option `3` - this will remove all peers from config.json 
